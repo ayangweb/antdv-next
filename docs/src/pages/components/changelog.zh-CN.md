@@ -2,6 +2,71 @@
 title: 组件更新日志
 ---
 
+## V1.1.1
+
+本次版本主要聚焦于 **增强与 Ant Design 的 API 对齐**、**为更多组件补充 slot / SFC 用法支持**，并持续 **修复 Modal、Menu、Tree、Slider、Switch、Skeleton 等组件的行为问题**。同时补充了更多单元测试覆盖，并更新了文档站点内容。
+
+**✨ 新功能 Features**
+
+* feat：支持 Timeline / Descriptions / Breadcrumb 使用 SFC item 组件，并增强 Menu 的 slot 渲染，同时补充文档与测试 by @aibayanyu20 [#295](https://github.com/antdv-next/antdv-next/pull/295)
+* feat：Form.Item 支持 `tooltip` / `help` / `label` / `extra` 插槽 by @aibayanyu20 [#301](https://github.com/antdv-next/antdv-next/pull/301)
+* feat：新增 `MaskType` by @mengxianghan [#318](https://github.com/antdv-next/antdv-next/pull/318)
+* feat：同步 Progress 与主题预览行为以对齐 antd by @han1548772930 [#329](https://github.com/antdv-next/antdv-next/pull/329)
+* feat：同步 `sizeType` by @aibayanyu20 [#338](https://github.com/antdv-next/antdv-next/pull/338)
+
+**🐞 问题修复 Fixes**
+
+* fix(tour)：在 `panelRender` 中保留步骤级语义 class by @shiqkuangsan [#291](https://github.com/antdv-next/antdv-next/pull/291)
+* fix(slider)：将 `tabindex` 属性名修正为 `tabIndex` by @shiqkuangsan [#296](https://github.com/antdv-next/antdv-next/pull/296)
+* fix：修复 Message 校验时 label 使用问题 by @Rascal-Coder [#305](https://github.com/antdv-next/antdv-next/pull/305)
+* fix：修复 Menu `keyPath` 顺序反转问题 by @aibayanyu20 [#311](https://github.com/antdv-next/antdv-next/pull/311)
+* fix(modal)：修复默认 blur 模式未生效的问题，并更新相关说明 by @mengxianghan [#314](https://github.com/antdv-next/antdv-next/pull/314)
+* fix：修复 Tooltip 图标渲染问题 by @aibayanyu20 [#313](https://github.com/antdv-next/antdv-next/pull/313)
+* fix(modal)：为 `onCancel` 类型补充 `KeyboardEvent` 支持 by @utianhuan666 [#324](https://github.com/antdv-next/antdv-next/pull/324)
+* fix：修复 Form.Item 未继承 ref 的问题 by @aibayanyu20 [#325](https://github.com/antdv-next/antdv-next/pull/325)
+* fix：修复 Switch 受控模式问题 by @aibayanyu20 [#328](https://github.com/antdv-next/antdv-next/pull/328)
+* fix：修复 Tree `checkedKeys` 为对象时的处理问题 by @aibayanyu20 [#333](https://github.com/antdv-next/antdv-next/pull/333)
+* fix：修复 Segmented 动画问题 by @aibayanyu20 [#334](https://github.com/antdv-next/antdv-next/pull/334)
+* fix：修复 Skeleton size 未生效的问题 by @aibayanyu20 [#337](https://github.com/antdv-next/antdv-next/pull/337)
+
+**🧪 单元测试 Tests**
+
+本版本为 Tabs、Tour、ColorPicker、cssinjs、Slider、Table、Image、FloatButton、TimePicker 等补充单元测试，提升回归保护能力。
+
+* test(tabs)：新增单元测试 by @shiqkuangsan [#290](https://github.com/antdv-next/antdv-next/pull/290)
+* test：补充 ColorPicker 与 cssinjs 单元测试 by @aibayanyu20 [#292](https://github.com/antdv-next/antdv-next/pull/292)
+* test(tour)：新增单元测试 by @shiqkuangsan [#294](https://github.com/antdv-next/antdv-next/pull/294)
+* test(slider)：新增单元测试 by @shiqkuangsan [#298](https://github.com/antdv-next/antdv-next/pull/298)
+* test(table)：新增单元测试 by @shiqkuangsan [#302](https://github.com/antdv-next/antdv-next/pull/302)
+* test(image)：新增单元测试 by @darkingtail [#307](https://github.com/antdv-next/antdv-next/pull/307)
+* test(float-button)：新增单元测试 by @darkingtail [#306](https://github.com/antdv-next/antdv-next/pull/306)
+* test(time-picker)：新增单元测试 by @shiqkuangsan [#308](https://github.com/antdv-next/antdv-next/pull/308)
+
+**📝 文档更新 Documentation**
+
+* docs：补充 SEO 性能优化 by @aibayanyu20 [#293](https://github.com/antdv-next/antdv-next/pull/293)
+* docs(covers)：将 QRCode 属性名更正为 `QrCode`（驼峰命名）by @utianhuan666 [#299](https://github.com/antdv-next/antdv-next/pull/299)
+* docs：更新文档并同步更新 LLM 脚本 by @aibayanyu20 [#322](https://github.com/antdv-next/antdv-next/pull/322)
+* docs(table)：补充 column 文档说明 by @cc-hearts [#336](https://github.com/antdv-next/antdv-next/pull/336)
+
+**🛠 重构与维护 Refactor & Maintenance**
+
+* chore(cascader)：版本升级 by @cc-hearts [#304](https://github.com/antdv-next/antdv-next/pull/304)
+* fix：移除重复的 `initMotionCommonLeave` 函数 by @utianhuan666 [#323](https://github.com/antdv-next/antdv-next/pull/323)
+* fix(deps)：将 `@v-c/select` 升级至 `^1.0.17` by @shiqkuangsan [#326](https://github.com/antdv-next/antdv-next/pull/326)
+
+---
+
+**👏 新贡献者 New Contributors**
+
+感谢以下社区贡献者的首次参与：
+
+* @mengxianghan（[#314](https://github.com/antdv-next/antdv-next/pull/314)）
+
+**Full Changelog**
+https://github.com/antdv-next/antdv-next/compare/antdv-next@1.1.0...antdv-next@1.1.1
+
+
 ## V1.1.0
 
 本次版本主要聚焦于 **同步 antd v6.3.1**、**修复组件行为与可访问性问题**，并进一步 **补充更多组件的单元测试覆盖**。同时包含文档更新、CI/脚本维护以及 sponsor/readme 优化。

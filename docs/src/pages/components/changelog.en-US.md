@@ -2,6 +2,71 @@
 title: Component Changelog
 ---
 
+## V1.1.1
+
+This release focuses on **improving API parity with Ant Design**, **expanding slot/SFC support for more components**, and **fixing behavior issues across Modal, Menu, Tree, Slider, Switch, Skeleton, and more**. It also adds broader unit test coverage and updates the documentation site.
+
+**✨ Features**
+
+* feat: support SFC item components for Timeline / Descriptions / Breadcrumb, and enhance Menu slot rendering with docs/tests by @aibayanyu20 in [#295](https://github.com/antdv-next/antdv-next/pull/295)
+* feat: Form.Item now supports `tooltip` / `help` / `label` / `extra` slots by @aibayanyu20 in [#301](https://github.com/antdv-next/antdv-next/pull/301)
+* feat: add `MaskType` by @mengxianghan in [#318](https://github.com/antdv-next/antdv-next/pull/318)
+* feat: sync Progress and theme preview behavior with antd by @han1548772930 in [#329](https://github.com/antdv-next/antdv-next/pull/329)
+* feat: sync `sizeType` by @aibayanyu20 in [#338](https://github.com/antdv-next/antdv-next/pull/338)
+
+**🐞 Fixes**
+
+* fix(tour): preserve step-level semantic classes in `panelRender` by @shiqkuangsan in [#291](https://github.com/antdv-next/antdv-next/pull/291)
+* fix(slider): correct `tabindex` prop name to `tabIndex` by @shiqkuangsan in [#296](https://github.com/antdv-next/antdv-next/pull/296)
+* fix: validate Message uses label correctly by @Rascal-Coder in [#305](https://github.com/antdv-next/antdv-next/pull/305)
+* fix: fix Menu keyPath order being reversed by @aibayanyu20 in [#311](https://github.com/antdv-next/antdv-next/pull/311)
+* fix(modal): fix default blur mode not taking effect and update related description by @mengxianghan in [#314](https://github.com/antdv-next/antdv-next/pull/314)
+* fix: fix Tooltip icon rendering by @aibayanyu20 in [#313](https://github.com/antdv-next/antdv-next/pull/313)
+* fix(modal): add `KeyboardEvent` support to `onCancel` type by @utianhuan666 in [#324](https://github.com/antdv-next/antdv-next/pull/324)
+* fix: fix Form.Item ref inheritance by @aibayanyu20 in [#325](https://github.com/antdv-next/antdv-next/pull/325)
+* fix: fix Switch controlled mode by @aibayanyu20 in [#328](https://github.com/antdv-next/antdv-next/pull/328)
+* fix: fix Tree `checkedKeys` object handling by @aibayanyu20 in [#333](https://github.com/antdv-next/antdv-next/pull/333)
+* fix: fix Segmented motion by @aibayanyu20 in [#334](https://github.com/antdv-next/antdv-next/pull/334)
+* fix: fix Skeleton size not taking effect by @aibayanyu20 in [#337](https://github.com/antdv-next/antdv-next/pull/337)
+
+**🧪 Tests**
+
+This release adds unit tests for Tabs, Tour, ColorPicker, cssinjs, Slider, Table, Image, FloatButton, and TimePicker.
+
+* test(tabs): add unit tests by @shiqkuangsan in [#290](https://github.com/antdv-next/antdv-next/pull/290)
+* test: add ColorPicker unit tests and cssinjs unit tests by @aibayanyu20 in [#292](https://github.com/antdv-next/antdv-next/pull/292)
+* test(tour): add unit tests by @shiqkuangsan in [#294](https://github.com/antdv-next/antdv-next/pull/294)
+* test(slider): add unit tests by @shiqkuangsan in [#298](https://github.com/antdv-next/antdv-next/pull/298)
+* test(table): add unit tests by @shiqkuangsan in [#302](https://github.com/antdv-next/antdv-next/pull/302)
+* test(image): add unit tests by @darkingtail in [#307](https://github.com/antdv-next/antdv-next/pull/307)
+* test(float-button): add unit tests by @darkingtail in [#306](https://github.com/antdv-next/antdv-next/pull/306)
+* test(time-picker): add unit tests by @shiqkuangsan in [#308](https://github.com/antdv-next/antdv-next/pull/308)
+
+**📝 Documentation**
+
+* docs: add SEO performance improvements by @aibayanyu20 in [#293](https://github.com/antdv-next/antdv-next/pull/293)
+* docs(covers): correct the QRCode property name to `QrCode` (camel case) by @utianhuan666 in [#299](https://github.com/antdv-next/antdv-next/pull/299)
+* docs: update docs and LLM script by @aibayanyu20 in [#322](https://github.com/antdv-next/antdv-next/pull/322)
+* docs(table): add column documentation by @cc-hearts in [#336](https://github.com/antdv-next/antdv-next/pull/336)
+
+**🛠 Refactor & Maintenance**
+
+* chore(cascader): bump version by @cc-hearts in [#304](https://github.com/antdv-next/antdv-next/pull/304)
+* fix: remove duplicate `initMotionCommonLeave` function by @utianhuan666 in [#323](https://github.com/antdv-next/antdv-next/pull/323)
+* fix(deps): bump `@v-c/select` to `^1.0.17` by @shiqkuangsan in [#326](https://github.com/antdv-next/antdv-next/pull/326)
+
+---
+
+**👏 New Contributors**
+
+Thanks to the following contributor for their first contribution:
+
+* @mengxianghan in [#314](https://github.com/antdv-next/antdv-next/pull/314)
+
+**Full Changelog**
+https://github.com/antdv-next/antdv-next/compare/antdv-next@1.1.0...antdv-next@1.1.1
+
+
 ## V1.1.0
 
 This release focuses on **syncing with antd v6.3.1**, **fixing component behavior and accessibility issues**, and **expanding unit test coverage** across more components. It also includes documentation updates, CI/script maintenance, and sponsor/readme improvements.
