@@ -1,10 +1,22 @@
 import type { App } from 'vue'
+import type { MasonryProps, MasonrySlots } from './Masonry'
 import Masonry from './Masonry'
 
 export type { MasonryEmits, MasonryProps, MasonryRef, MasonrySlots } from './Masonry'
+export type { MasonryItemType } from './MasonryItem'
 
-;(Masonry as any).install = (app: App) => {
-  app.component(Masonry.name, Masonry)
+interface MasonryComponent {
+  new<T = any>(): {
+    $props: MasonryProps<T>
+    $slots: MasonrySlots<T>
+  }
+  install: (app: App) => void
 }
 
-export default Masonry
+const _Masonry = Masonry as unknown as MasonryComponent
+
+_Masonry.install = (app: App) => {
+  app.component('AMasonry', Masonry)
+}
+
+export default _Masonry

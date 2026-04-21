@@ -7,12 +7,7 @@ Customize semantic structure styles and class names. Supports both object and fu
 </docs>
 
 <script setup lang="ts">
-import type { MasonryProps } from 'antdv-next'
-
-interface MasonryItemType<T = any> {
-  key: string
-  data: T
-}
+import type { MasonryItemType, MasonryProps } from 'antdv-next'
 
 const items = [120, 80, 100, 60, 140, 90, 110, 70].map<MasonryItemType<number>>(
   (height, index) => ({

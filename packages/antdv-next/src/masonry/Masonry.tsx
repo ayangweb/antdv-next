@@ -46,7 +46,7 @@ export type MasonryClassNamesType = SemanticClassNamesType<MasonryProps, Masonry
 
 export type MasonryStylesType = SemanticStylesType<MasonryProps, MasonrySemanticStyles>
 
-export interface MasonryProps extends ComponentBaseProps,
+export interface MasonryProps<T = any> extends ComponentBaseProps,
   /* @vue-ignore */
   MasonryEmitsProps {
   classes?: MasonryClassNamesType
@@ -55,9 +55,9 @@ export interface MasonryProps extends ComponentBaseProps,
   gutter?: RowProps['gutter']
 
   // Data
-  items?: MasonryItemType[]
+  items?: MasonryItemType<T>[]
 
-  itemRender?: (itemInfo: MasonryItemType & { index: number }) => any
+  itemRender?: (itemInfo: MasonryItemType<T> & { index: number }) => any
 
   /** Number of columns in the masonry grid layout */
   columns?: number | Partial<Record<Breakpoint, number>>
@@ -76,9 +76,9 @@ export interface MasonryEmitsProps {
   onLayoutChange?: MasonryEmits['layoutChange']
 }
 
-export interface MasonrySlots {
+export interface MasonrySlots<T = any> {
   default: () => any
-  itemRender?: (itemInfo: MasonryItemType & { index: number }) => any
+  itemRender?: (itemInfo: MasonryItemType<T> & { index: number }) => any
 }
 
 export interface MasonryRef {
