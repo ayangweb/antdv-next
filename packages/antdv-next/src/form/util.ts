@@ -3,9 +3,36 @@ import type { ValidateStatus } from './FormItem'
 import type { InternalNamePath, Meta } from './types'
 import { cloneDeep } from 'es-toolkit'
 
-// form item name black list.  in form ,you can use form.id get the form item element.
+// form item name black list. in form, you can use form.id get the form item element.
 // use object hasOwnProperty will get better performance if black list is longer.
-const formItemNameBlackList = ['parentNode']
+//
+// HTMLFormElement supports `[LegacyOverrideBuiltIns]`, so a form control's
+// `id` (or `name`) shadows built-in properties on the form element. e.g. with
+// `<input id="tagName">` inside `<form>`, `form.tagName` returns the matched
+// input element instead of the string `"FORM"`. Vue's runtime-dom calls
+// `el.tagName.includes('-')` during prop patching, which then throws
+// `TypeError: el.tagName.includes is not a function`.
+//
+// To avoid this, we prefix any field id whose name collides with the
+// DOM/Node/Element properties that the renderer is known to read on the
+// underlying `<form>` element during patching.
+const formItemNameBlackList = [
+  'tagName',
+  'nodeName',
+  'nodeType',
+  'nodeValue',
+  'parentNode',
+  'parentElement',
+  'previousSibling',
+  'nextSibling',
+  'firstChild',
+  'lastChild',
+  'childNodes',
+  'children',
+  'ownerDocument',
+  'attributes',
+  'namespaceURI',
+]
 
 // default form item id prefix.
 const defaultItemNamePrefixCls: string = 'form_item'

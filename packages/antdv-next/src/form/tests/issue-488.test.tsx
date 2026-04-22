@@ -5,7 +5,7 @@ import Button from '../../button'
 import Input from '../../input'
 import { mount } from '/@tests/utils'
 
-describe('issue 488: FormItem name="tagName" should not crash', () => {
+describe('issue 488: FormItem name conflicting with DOM properties', () => {
   it('renders and submits without TypeError when name is "tagName"', async () => {
     const model = reactive({ tagName: '' })
     const wrapper = mount(() => (
@@ -19,8 +19,12 @@ describe('issue 488: FormItem name="tagName" should not crash', () => {
       </Form>
     ))
     await nextTick()
-    expect(wrapper.find('input').exists()).toBe(true)
-    await wrapper.find('input').setValue('hello')
+    const input = wrapper.find('input')
+    expect(input.exists()).toBe(true)
+    // The generated id should be prefixed to avoid colliding with the
+    // `tagName` built-in property of HTMLFormElement.
+    expect(input.attributes('id')).toBe('form_item_tagName')
+    await input.setValue('hello')
     await nextTick()
     expect(model.tagName).toBe('hello')
   })
