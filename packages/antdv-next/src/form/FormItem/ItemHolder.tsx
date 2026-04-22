@@ -22,6 +22,54 @@ export type ItemHolderProps = FormItemProps & {
   onSubItemMetaChange: ReportMetaChange
 }
 
+/**
+ * All prop keys that belong to ItemHolder / FormItem and must never be
+ * forwarded to native DOM elements.  Any attribute whose name matches a
+ * built-in DOM property (e.g. "tagName", "id", "hidden") would otherwise
+ * trigger Vue's patchDOMProp and cause a runtime TypeError.
+ */
+const ITEM_HOLDER_PROP_KEYS: readonly string[] = [
+  // BaseFormItemProps
+  'name',
+  'rules',
+  'trigger',
+  'validateTrigger',
+  'validateDebounce',
+  'validateFirst',
+  // ComponentBaseProps
+  'rootClass',
+  'prefixCls',
+  // FormItemLabelProps (omit requiredMark)
+  'colon',
+  'htmlFor',
+  'label',
+  'labelAlign',
+  'labelCol',
+  'tooltip',
+  'vertical',
+  // FormItemInputProps
+  'wrapperCol',
+  'extra',
+  'status',
+  'help',
+  'fieldId',
+  // FormItemProps own props
+  'noStyle',
+  'id',
+  'hasFeedback',
+  'validateStatus',
+  'required',
+  'hidden',
+  'messageVariables',
+  'layout',
+  // ItemHolderProps own props
+  'errors',
+  'warnings',
+  'meta',
+  'isRequired',
+  'onSubItemMetaChange',
+]
+
 const ItemHolder = defineComponent<ItemHolderProps>(
   (props, { attrs, slots }) => {
     const itemPrefixCls = computed(() => `${props.prefixCls}-item`)
@@ -73,7 +121,11 @@ const ItemHolder = defineComponent<ItemHolderProps>(
         onSubItemMetaChange,
         name,
       } = props
-      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
+      const { className, style, restAttrs } = getAttrStyleAndClass(attrs, {
+        class: true,
+        style: true,
+        omit: ITEM_HOLDER_PROP_KEYS as string[],
+      })
       const debounceErrors = props?.errors
       const debounceWarnings = props?.warnings
 
