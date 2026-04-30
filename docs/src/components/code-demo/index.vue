@@ -288,6 +288,11 @@ function handleOpenPlayground() {
             />
           </SandpackProvider>
         </div>
+        <!-- Collapse button at bottom -->
+        <div class="ant-doc-demo-box-collapse-btn" @click="handleShowCode">
+          <ExpandIcon :expanded="showCode" />
+          <span>{{ t('ui.codeDemo.action.expandedCode') }}</span>
+        </div>
       </template>
     </template>
   </section>
@@ -384,6 +389,23 @@ function handleOpenPlayground() {
       @apply color-text-secondary;
       cursor: pointer;
       transition: 0.24s;
+    }
+  }
+
+  &-collapse-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 0;
+    border-top: 1px dashed var(--ant-color-split);
+    cursor: pointer;
+    color: var(--ant-color-text-secondary);
+    font-size: 13px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--ant-color-primary);
     }
   }
 
